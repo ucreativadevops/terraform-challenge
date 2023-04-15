@@ -6,26 +6,26 @@ pipeline{
     stages {
         stage('Terraform Format'){
             steps{
-                sh 'Ejecutando terraform fmt'
+                echo 'Ejecutando terraform fmt'
             }
         }
 
         stage('Terraform Validate'){
             steps{
-                sh 'Ejecutando terraform validate'
+                echo 'Ejecutando terraform validate'
             }
         }
 
         stage('Terraform Plan'){
             steps{
-                sh 'Ejecutando terraform plan'
+                echo 'Ejecutando terraform plan'
             }
         }
 
         stage('Terraform Apply'){
             when { branch 'prod' }
             steps{
-                sh 'Ejecutando terraform apply'
+                echo 'Ejecutando terraform apply'
             }
         }
     }
