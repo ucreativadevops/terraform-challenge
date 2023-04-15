@@ -28,5 +28,15 @@ pipeline{
                 echo 'Ejecutando terraform apply'
             }
         }
+
+        stage('Terraform Destroy'){
+            when { branch 'destroy-infra' }
+            steps{
+                sh '''
+                    cd /terraform_location
+                    terraform destroy
+                '''
+            }
+        }
     }
 }
